@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity Shortcut Mastery - Learn & Dominate</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="shortcuts-styles.css">
+    <link rel="stylesheet" href="walkthrough.css">
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <!-- User Account Button (Top Right) -->
+        <div class="hero-account-btn">
+            <button class="btn-account-hero" id="account-btn-hero" onclick="toggleAccountMenuHero()">
+                <div class="account-avatar-hero">
+                    <span id="user-initials-hero">👤</span>
+                </div>
+                <span class="account-name-hero" id="nav-user-name-hero">Guest</span>
+            </button>
+
+            <!-- Account Dropdown Menu -->
+            <div class="account-dropdown-hero" id="account-dropdown-hero">
+                <div class="dropdown-header">
+                    <div class="dropdown-avatar">
+                        <span id="dropdown-initials-hero">👤</span>
+                    </div>
+                    <div class="dropdown-user-info">
+                        <div class="dropdown-name" id="dropdown-name-hero">Guest User</div>
+                        <div class="dropdown-email" id="dropdown-email-hero">Not logged in</div>
+                    </div>
+                </div>
+
+                <div class="dropdown-divider"></div>
+
+                <a href="dashboard.html" class="dropdown-item">
+                    <span class="item-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+                <button class="dropdown-item" onclick="openHelp()">
+                    <span class="item-icon">❓</span>
+                    <span>Start Tour</span>
+                </button>
+                <a href="login.html" class="dropdown-item" id="login-link-hero">
+                    <span class="item-icon">🔐</span>
+                    <span>Login / Sign Up</span>
+                </a>
+
+                <div class="dropdown-divider" id="logout-divider-hero" style="display: none;"></div>
+
+                <button class="dropdown-item logout-item" id="logout-btn-hero" onclick="handleLogoutHero()"
+                    style="display: none;">
+                    <span class="item-icon">🚪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge">🚀 Antigravity Platform</div>
+            <h1 class="hero-title">
+                <span class="gradient-text">Shortcut Mastery</span>
+            </h1>
+            <p class="hero-subtitle">Master shortcuts to achieve zero-gravity productivity</p>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Shortcuts</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Skill Tiers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10x</div>
+                    <div class="stat-label">Faster</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-gradient"></div>
+    </header>
+
+    <!-- Shortcut of the Day Widget -->
+    <section class="shortcut-of-day">
+        <div class="container">
+            <div class="sotd-card">
+                <div class="sotd-badge">💡 Shortcut of the Day</div>
+                <div class="sotd-content">
+                    <div class="sotd-key" id="sotd-key">Ctrl + Shift + P</div>
+                    <div class="sotd-action" id="sotd-action">Command Palette</div>
+                    <div class="sotd-description" id="sotd-description">Access any VS Code command instantly - the most
+                        powerful shortcut!</div>
+                </div>
+                <button class="sotd-next-btn" onclick="nextShortcutOfDay()" title="Next Random Shortcut">
+                    🎲 Random
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Navigation -->
+    <nav class="quick-nav">
+        <div class="container">
+            <div class="tier-navigator">
+                <button id="prev-tier" class="tier-nav-btn" title="Previous Tier (←)">←</button>
+                <span id="current-tier-label" class="tier-label">TIER 1: Essential</span>
+                <button id="next-tier" class="tier-nav-btn" title="Next Tier (→)">→</button>
+            </div>
+
+            <!-- Platform Toggle -->
+            <div class="platform-toggle">
+                <button class="platform-btn active" data-platform="windows" onclick="switchPlatform('windows')">
+                    🪟 Windows
+                </button>
+                <button class="platform-btn" data-platform="mac" onclick="switchPlatform('mac')">
+                    🍎 Mac
+                </button>
+                <button class="platform-btn" data-platform="linux" onclick="switchPlatform('linux')">
+                    🐧 Linux
+                </button>
+            </div>
+
+            <a href="#tier1" class="nav-pill">🎯 Essential</a>
+            <a href="#tier2" class="nav-pill">🔥 High-Impact</a>
+            <a href="#tier3" class="nav-pill">⚡ Power User</a>
+            <a href="#tier4" class="nav-pill">🎨 Specialized</a>
+            <a href="#tips" class="nav-pill">🧠 Pro Tips</a>
+            <a href="#quick-ref" class="nav-pill">📋 Quick Ref</a>
+
+            <!-- Learning Mode Toggle -->
+            <button class="mode-toggle-btn" onclick="toggleFlashcardMode()" title="Toggle Flashcard Mode (F)">
+                <span id="mode-icon">🎴</span> <span id="mode-text">Flashcard Mode</span>
+            </button>
+
+            <!-- Download PDF -->
+            <button class="download-pdf-btn" onclick="downloadPDF()" title="Download PDF Cheat Sheet">
+                📄 Download PDF
+            </button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Essential 10 Highlight -->
+        <section class="essential-section">
+            <h2 class="section-title">⭐ The Essential 10 - Start Here!</h2>
+            <p class="section-subtitle">Master these first for immediate productivity gains</p>
+            <div class="shortcuts-grid essential-grid">
+                <div class="shortcut-card featured">
+                    <div class="shortcut-header">
+                        <span class="shortcut-number">1</span>
+                        <span class="shortcut-category">VS Code</span>
+                    </div>
+                    <div class="shortcut-key">Ctrl + P</div>
+                    <div class="shortcut-desc">Quick file open</div>
+                    <div class="shortcut-tip">Never click through folders again!</div>
+                </div>
+                <div class="shortcut-card featured">
+                    <div class="shortcut-header">
+                        <span class="shortcut-number">2</span>
+                        <span class="shortcut-category">VS Code</span>
+                    </div>
+                    <div class="shortcut-key">Ctrl + Shift + P</div>
+                    <div class="shortcut-desc">Command palette</div>
+                    <div class="shortcut-tip">Access any VS Code command</div>
+                </div>
+                <div class="shortcut-card featured">
+                    <div class="shortcut-header">
+                        <span class="shortcut-number">3</span>
+                        <span class="shortcut-category">VS Code</span>
+                    </div>
+                    <div class="shortcut-key">Ctrl + D</div>
+                    <div class="shortcut-desc">Multi-select</div>
+                    <div class="shortcut-tip">Edit multiple instances at once</div>
+                </div>
+                <div class="shortcut-card featured">
+                    <div class="shortcut-header">
+                        <span class="shortcut-number">4</span>
+                        <span class="shortcut-category">VS Code</span>
+                    </div>
+                    <div class="shortcut-key">Ctrl + /</div>
+                    <div class="shortcut-desc">Toggle comment</div>
+                    <div class="shortcut-tip">Comment code instantly</div>
+                </div>
+                <div class="shortcut-card featured">
+                    <div class="shortcut-header">
+                        <span class="shortcut-number">5</span>
+                        <span class="shortcut-category">VS Code</span>
+                    </div>
+                    <div class="shortcut-key">Alt + ↑/↓</div>
+                    <div class="shortcut-desc">Move line</div>
+                    <div class="shortcut-tip">Reorganize code effortlessly</div>
+                </div>
+                <div class="shortcut-card featured">
+                    <div class="shortcut-header">
+                        <span class="shortcut-number">6</span>
+                        <span class="shortcut-category">VS Code</span>
+                    </div>
+                    <div class="shortcut-key">Ctrl + Space</div>
+                    <div class="shortcut-desc">IntelliSense</div>
+                    <div class="shortcut-tip">Auto-complete suggestions</div>
+                </div>
+                <div class="shortcut-card featured">
+                    <div class="shortcut-header">
+                        <span class="shortcut-number">7</span>
+                        <span class="shortcut-category">VS Code</span>
+                    </div>
+                    <div class="shortcut-key">Ctrl + Click</div>
+                    <div class="shortcut-desc">Go to definition</div>
+                    <div class="shortcut-tip">Navigate to source code</div>
+                </div>
+                <div class="shortcut-card featured">
+                    <div class="shortcut-header">
+                        <span class="shortcut-number">8</span>
+                        <span class="shortcut-category">Windows</span>
+                    </div>
+                    <div class="shortcut-key">Win + D</div>
+                    <div class="shortcut-desc">Show desktop</div>
+                    <div class="shortcut-tip">Clear workspace instantly</div>
+                </div>
+                <div class="shortcut-card featured">
+                    <div class="shortcut-header">
+                        <span class="shortcut-number">9</span>
+                        <span class="shortcut-category">Windows</span>
+                    </div>
+                    <div class="shortcut-key">Alt + Tab</div>
+                    <div class="shortcut-desc">Switch windows</div>
+                    <div class="shortcut-tip">Fast app switching</div>
+                </div>
+                <div class="shortcut-card featured">
+                    <div class="shortcut-header">
+                        <span class="shortcut-number">10</span>
+                        <span class="shortcut-category">Git</span>
+                    </div>
+                    <div class="shortcut-key">git status</div>
+                    <div class="shortcut-desc">Check repo state</div>
+                    <div class="shortcut-tip">Know what's changed</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tier 1: Essential Daily -->
+        <section id="tier1" class="tier-section">
+            <div class="tier-header">
+                <div class="tier-badge tier-1">TIER 1</div>
+                <h2 class="tier-title">Essential Daily Shortcuts</h2>
+                <p class="tier-subtitle">Use these 100+ times per day</p>
+            </div>
+
+            <!-- VS Code Core -->
+            <div class="category-section">
+                <h3 class="category-title">
+                    <span class="category-icon">💻</span>
+                    VS Code - Core Navigation & Editing
+                </h3>
+                <div class="shortcuts-table">
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + P</div>
+                        <div class="shortcut-action-cell">Quick file open</div>
+                        <div class="shortcut-why-cell">Fastest way to navigate projects</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + Shift + P</div>
+                        <div class="shortcut-action-cell">Command palette</div>
+                        <div class="shortcut-why-cell">Access any VS Code command</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + D</div>
+                        <div class="shortcut-action-cell">Select next occurrence</div>
+                        <div class="shortcut-why-cell">Multi-cursor editing magic</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + /</div>
+                        <div class="shortcut-action-cell">Toggle line comment</div>
+                        <div class="shortcut-why-cell">Comment code instantly</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + Shift + K</div>
+                        <div class="shortcut-action-cell">Delete line</div>
+                        <div class="shortcut-why-cell">Remove lines without selecting</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Alt + ↑/↓</div>
+                        <div class="shortcut-action-cell">Move line up/down</div>
+                        <div class="shortcut-why-cell">Reorganize code quickly</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + Space</div>
+                        <div class="shortcut-action-cell">Trigger IntelliSense</div>
+                        <div class="shortcut-why-cell">Auto-complete suggestions</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + .</div>
+                        <div class="shortcut-action-cell">Quick fix</div>
+                        <div class="shortcut-why-cell">Fix errors/refactor instantly</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">F2</div>
+                        <div class="shortcut-action-cell">Rename symbol</div>
+                        <div class="shortcut-why-cell">Refactor variable/function names</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + Click</div>
+                        <div class="shortcut-action-cell">Go to definition</div>
+                        <div class="shortcut-why-cell">Navigate to source code</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Alt + ← / →</div>
+                        <div class="shortcut-action-cell">Navigate back/forward</div>
+                        <div class="shortcut-why-cell">Move through edit history</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + B</div>
+                        <div class="shortcut-action-cell">Toggle sidebar</div>
+                        <div class="shortcut-why-cell">Maximize screen space</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Windows OS -->
+            <div class="category-section">
+                <h3 class="category-title">
+                    <span class="category-icon">🪟</span>
+                    Windows OS - Window Management
+                </h3>
+                <div class="shortcuts-table">
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Win + D</div>
+                        <div class="shortcut-action-cell">Show/hide desktop</div>
+                        <div class="shortcut-why-cell">Clear workspace instantly</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Win + Tab</div>
+                        <div class="shortcut-action-cell">Task view</div>
+                        <div class="shortcut-why-cell">See all open windows</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Alt + Tab</div>
+                        <div class="shortcut-action-cell">Switch windows</div>
+                        <div class="shortcut-why-cell">Fast app switching</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Win + ← / →</div>
+                        <div class="shortcut-action-cell">Snap window left/right</div>
+                        <div class="shortcut-why-cell">Split screen productivity</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Win + Shift + S</div>
+                        <div class="shortcut-action-cell">Screenshot tool</div>
+                        <div class="shortcut-why-cell">Capture anything quickly</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Win + V</div>
+                        <div class="shortcut-action-cell">Clipboard history</div>
+                        <div class="shortcut-why-cell">Access previous copies</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Win + L</div>
+                        <div class="shortcut-action-cell">Lock computer</div>
+                        <div class="shortcut-why-cell">Security when stepping away</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + Shift + Esc</div>
+                        <div class="shortcut-action-cell">Task Manager</div>
+                        <div class="shortcut-why-cell">Kill frozen apps</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Git Essential -->
+            <div class="category-section">
+                <h3 class="category-title">
+                    <span class="category-icon">🔀</span>
+                    Git - Essential Commands
+                </h3>
+                <div class="shortcuts-table git-table">
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell git-cmd">git status</div>
+                        <div class="shortcut-action-cell">Check repo state</div>
+                        <div class="shortcut-why-cell">Know what's changed</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell git-cmd">git add .</div>
+                        <div class="shortcut-action-cell">Stage all changes</div>
+                        <div class="shortcut-why-cell">Prepare for commit</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell git-cmd">git commit -m "msg"</div>
+                        <div class="shortcut-action-cell">Commit with message</div>
+                        <div class="shortcut-why-cell">Save your work</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell git-cmd">git push</div>
+                        <div class="shortcut-action-cell">Push to remote</div>
+                        <div class="shortcut-why-cell">Share your code</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell git-cmd">git pull</div>
+                        <div class="shortcut-action-cell">Pull latest changes</div>
+                        <div class="shortcut-why-cell">Stay synchronized</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell git-cmd">git log --oneline</div>
+                        <div class="shortcut-action-cell">View commit history</div>
+                        <div class="shortcut-why-cell">See project timeline</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell git-cmd">git diff</div>
+                        <div class="shortcut-action-cell">See unstaged changes</div>
+                        <div class="shortcut-why-cell">Review before committing</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tier 2: High-Impact -->
+        <section id="tier2" class="tier-section">
+            <div class="tier-header">
+                <div class="tier-badge tier-2">TIER 2</div>
+                <h2 class="tier-title">High-Impact Productivity</h2>
+                <p class="tier-subtitle">Use these 20-50 times per day</p>
+            </div>
+
+            <!-- VS Code Advanced -->
+            <div class="category-section">
+                <h3 class="category-title">
+                    <span class="category-icon">⚙️</span>
+                    VS Code - Advanced Editing
+                </h3>
+                <div class="shortcuts-table">
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + Shift + L</div>
+                        <div class="shortcut-action-cell">Select all occurrences</div>
+                        <div class="shortcut-why-cell">Edit all instances at once</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + Alt + ↑/↓</div>
+                        <div class="shortcut-action-cell">Multi-cursor (column)</div>
+                        <div class="shortcut-why-cell">Edit multiple lines simultaneously</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + Shift + \</div>
+                        <div class="shortcut-action-cell">Jump to matching bracket</div>
+                        <div class="shortcut-why-cell">Navigate code blocks</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + ] / [</div>
+                        <div class="shortcut-action-cell">Indent/outdent line</div>
+                        <div class="shortcut-why-cell">Fix indentation quickly</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + Shift + [ / ]</div>
+                        <div class="shortcut-action-cell">Fold/unfold code</div>
+                        <div class="shortcut-why-cell">Collapse functions/classes</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + K, Ctrl + 0</div>
+                        <div class="shortcut-action-cell">Fold all</div>
+                        <div class="shortcut-why-cell">Collapse entire file</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + K, Ctrl + J</div>
+                        <div class="shortcut-action-cell">Unfold all</div>
+                        <div class="shortcut-why-cell">Expand entire file</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + Shift + O</div>
+                        <div class="shortcut-action-cell">Go to symbol</div>
+                        <div class="shortcut-why-cell">Jump to functions/classes</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + G</div>
+                        <div class="shortcut-action-cell">Go to line</div>
+                        <div class="shortcut-why-cell">Navigate by line number</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + Shift + F</div>
+                        <div class="shortcut-action-cell">Global search</div>
+                        <div class="shortcut-why-cell">Search across all files</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + H</div>
+                        <div class="shortcut-action-cell">Find and replace</div>
+                        <div class="shortcut-why-cell">Bulk text replacement</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- File Management -->
+            <div class="category-section">
+                <h3 class="category-title">
+                    <span class="category-icon">📁</span>
+                    VS Code - File & Tab Management
+                </h3>
+                <div class="shortcuts-table">
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + W</div>
+                        <div class="shortcut-action-cell">Close current tab</div>
+                        <div class="shortcut-why-cell">Clean up workspace</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + Shift + T</div>
+                        <div class="shortcut-action-cell">Reopen closed tab</div>
+                        <div class="shortcut-why-cell">Undo accidental closes</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + Tab</div>
+                        <div class="shortcut-action-cell">Cycle through tabs</div>
+                        <div class="shortcut-why-cell">Quick tab switching</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + \</div>
+                        <div class="shortcut-action-cell">Split editor</div>
+                        <div class="shortcut-why-cell">Side-by-side editing</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + 1/2/3</div>
+                        <div class="shortcut-action-cell">Focus editor group</div>
+                        <div class="shortcut-why-cell">Switch between splits</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + N</div>
+                        <div class="shortcut-action-cell">New file</div>
+                        <div class="shortcut-why-cell">Start fresh quickly</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + S</div>
+                        <div class="shortcut-action-cell">Save file</div>
+                        <div class="shortcut-why-cell">Save your work</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + K, S</div>
+                        <div class="shortcut-action-cell">Save all</div>
+                        <div class="shortcut-why-cell">Save all open files</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal -->
+            <div class="category-section">
+                <h3 class="category-title">
+                    <span class="category-icon">⌨️</span>
+                    Terminal/PowerShell - Navigation
+                </h3>
+                <div class="shortcuts-table">
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + C</div>
+                        <div class="shortcut-action-cell">Cancel current command</div>
+                        <div class="shortcut-why-cell">Stop running processes</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + L / cls</div>
+                        <div class="shortcut-action-cell">Clear screen</div>
+                        <div class="shortcut-why-cell">Clean terminal view</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Tab</div>
+                        <div class="shortcut-action-cell">Auto-complete</div>
+                        <div class="shortcut-why-cell">Complete file/folder names</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">↑ / ↓</div>
+                        <div class="shortcut-action-cell">Command history</div>
+                        <div class="shortcut-why-cell">Reuse previous commands</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + R</div>
+                        <div class="shortcut-action-cell">Search history</div>
+                        <div class="shortcut-why-cell">Find old commands</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Git Intermediate -->
+            <div class="category-section">
+                <h3 class="category-title">
+                    <span class="category-icon">🌿</span>
+                    Git - Intermediate Workflow
+                </h3>
+                <div class="shortcuts-table git-table">
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell git-cmd">git checkout -b branch</div>
+                        <div class="shortcut-action-cell">Create & switch branch</div>
+                        <div class="shortcut-why-cell">Start new features</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell git-cmd">git branch</div>
+                        <div class="shortcut-action-cell">List branches</div>
+                        <div class="shortcut-why-cell">See all branches</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell git-cmd">git merge branch</div>
+                        <div class="shortcut-action-cell">Merge branch</div>
+                        <div class="shortcut-why-cell">Combine code</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell git-cmd">git stash</div>
+                        <div class="shortcut-action-cell">Stash changes</div>
+                        <div class="shortcut-why-cell">Save work temporarily</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell git-cmd">git stash pop</div>
+                        <div class="shortcut-action-cell">Apply stashed changes</div>
+                        <div class="shortcut-why-cell">Restore saved work</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell git-cmd">git reset HEAD~1</div>
+                        <div class="shortcut-action-cell">Undo last commit</div>
+                        <div class="shortcut-why-cell">Fix commit mistakes</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tier 3: Power User -->
+        <section id="tier3" class="tier-section">
+            <div class="tier-header">
+                <div class="tier-badge tier-3">TIER 3</div>
+                <h2 class="tier-title">Power User Features</h2>
+                <p class="tier-subtitle">Use these 5-20 times per day</p>
+            </div>
+
+            <div class="category-section">
+                <h3 class="category-title">
+                    <span class="category-icon">🔍</span>
+                    VS Code - Search & Replace Power
+                </h3>
+                <div class="shortcuts-table">
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + F</div>
+                        <div class="shortcut-action-cell">Find in file</div>
+                        <div class="shortcut-why-cell">Basic search</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + Shift + H</div>
+                        <div class="shortcut-action-cell">Global replace</div>
+                        <div class="shortcut-why-cell">Replace across files</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Alt + Enter</div>
+                        <div class="shortcut-action-cell">Select all matches</div>
+                        <div class="shortcut-why-cell">Multi-edit search results</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">F3 / Shift + F3</div>
+                        <div class="shortcut-action-cell">Next/previous match</div>
+                        <div class="shortcut-why-cell">Navigate search results</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Shift + Alt + F</div>
+                        <div class="shortcut-action-cell">Format entire file</div>
+                        <div class="shortcut-why-cell">Clean up all code</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <h3 class="category-title">
+                    <span class="category-icon">🐛</span>
+                    VS Code - Debugging
+                </h3>
+                <div class="shortcuts-table">
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">F5</div>
+                        <div class="shortcut-action-cell">Start debugging</div>
+                        <div class="shortcut-why-cell">Run with debugger</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">F9</div>
+                        <div class="shortcut-action-cell">Toggle breakpoint</div>
+                        <div class="shortcut-why-cell">Pause execution</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">F10</div>
+                        <div class="shortcut-action-cell">Step over</div>
+                        <div class="shortcut-why-cell">Execute next line</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">F11</div>
+                        <div class="shortcut-action-cell">Step into</div>
+                        <div class="shortcut-why-cell">Enter function</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Shift + F11</div>
+                        <div class="shortcut-action-cell">Step out</div>
+                        <div class="shortcut-why-cell">Exit function</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <h3 class="category-title">
+                    <span class="category-icon">🚀</span>
+                    Windows - Advanced Productivity
+                </h3>
+                <div class="shortcuts-table">
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Win + 1/2/3...</div>
+                        <div class="shortcut-action-cell">Open taskbar app</div>
+                        <div class="shortcut-why-cell">Launch pinned apps instantly</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Win + E</div>
+                        <div class="shortcut-action-cell">File Explorer</div>
+                        <div class="shortcut-why-cell">Quick file access</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Win + .</div>
+                        <div class="shortcut-action-cell">Emoji picker</div>
+                        <div class="shortcut-why-cell">Insert emojis/symbols</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Win + X</div>
+                        <div class="shortcut-action-cell">Quick Link menu</div>
+                        <div class="shortcut-why-cell">Power user menu</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tier 4: Specialized -->
+        <section id="tier4" class="tier-section">
+            <div class="tier-header">
+                <div class="tier-badge tier-4">TIER 4</div>
+                <h2 class="tier-title">Specialized & Nice-to-Have</h2>
+                <p class="tier-subtitle">Use these occasionally</p>
+            </div>
+
+            <div class="category-section">
+                <h3 class="category-title">
+                    <span class="category-icon">🧘</span>
+                    VS Code - Zen Mode & Focus
+                </h3>
+                <div class="shortcuts-table">
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + K, Z</div>
+                        <div class="shortcut-action-cell">Zen mode</div>
+                        <div class="shortcut-why-cell">Distraction-free coding</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">F11</div>
+                        <div class="shortcut-action-cell">Full screen</div>
+                        <div class="shortcut-why-cell">Maximum screen space</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell">Ctrl + = / -</div>
+                        <div class="shortcut-action-cell">Zoom in/out</div>
+                        <div class="shortcut-why-cell">Adjust text size</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <h3 class="category-title">
+                    <span class="category-icon">🔧</span>
+                    Git - Advanced Operations
+                </h3>
+                <div class="shortcuts-table git-table">
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell git-cmd">git rebase -i HEAD~n</div>
+                        <div class="shortcut-action-cell">Interactive rebase</div>
+                        <div class="shortcut-why-cell">Clean commit history</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell git-cmd">git cherry-pick</div>
+                        <div class="shortcut-action-cell">Apply specific commit</div>
+                        <div class="shortcut-why-cell">Copy commits between branches</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell git-cmd">git reflog</div>
+                        <div class="shortcut-action-cell">Reference log</div>
+                        <div class="shortcut-why-cell">Recover lost commits</div>
+                    </div>
+                    <div class="shortcut-row">
+                        <div class="shortcut-key-cell git-cmd">git blame file</div>
+                        <div class="shortcut-action-cell">Show line authors</div>
+                        <div class="shortcut-why-cell">See who wrote what</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pro Tips -->
+        <section id="tips" class="tips-section">
+            <h2 class="section-title">🧠 Pro Tips for Mastering Shortcuts</h2>
+
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">📅</div>
+                    <h3 class="tip-title">4-Week Learning Plan</h3>
+                    <ul class="tip-list">
+                        <li><strong>Week 1:</strong> Master TIER 1 (10 shortcuts)</li>
+                        <li><strong>Week 2:</strong> Add TIER 2 (15 shortcuts)</li>
+                        <li><strong>Week 3:</strong> Incorporate TIER 3 (10 shortcuts)</li>
+                        <li><strong>Week 4:</strong> Experiment with TIER 4</li>
+                    </ul>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-icon">🎯</div>
+                    <h3 class="tip-title">Practice Techniques</h3>
+                    <ul class="tip-list">
+                        <li>Print this guide and keep it visible</li>
+                        <li>Force yourself to use shortcuts instead of mouse</li>
+                        <li>Track usage - note which ones you use most</li>
+                        <li>Customize - create your own shortcuts</li>
+                    </ul>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-icon">⚡</div>
+                    <h3 class="tip-title">Productivity Multipliers</h3>
+                    <ul class="tip-list">
+                        <li>Combine shortcuts: <code>Ctrl+D</code> → <code>Ctrl+D</code> → <code>Ctrl+D</code></li>
+                        <li>Use multi-cursor + shortcuts for bulk edits</li>
+                        <li>Chain Git commands: <code>git add . && git commit -m "msg" && git push</code></li>
+                    </ul>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-icon">🎨</div>
+                    <h3 class="tip-title">VS Code Customization</h3>
+                    <ul class="tip-list">
+                        <li>Open keyboard shortcuts: <code>Ctrl + K, Ctrl + S</code></li>
+                        <li>Search for any command and assign custom shortcuts</li>
+                        <li>Export/import shortcuts across machines</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Reference -->
+        <section id="quick-ref" class="quick-ref-section">
+            <h2 class="section-title">📋 Quick Reference Card</h2>
+            <p class="section-subtitle">Print this for your desk!</p>
+
+            <div class="ref-columns">
+                <div class="ref-column">
+                    <h3 class="ref-title">The Essential 10</h3>
+                    <div class="ref-list">
+                        <div class="ref-item">
+                            <span class="ref-num">1</span>
+                            <span class="ref-key">Ctrl + P</span>
+                            <span class="ref-desc">Quick file open</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-num">2</span>
+                            <span class="ref-key">Ctrl + Shift + P</span>
+                            <span class="ref-desc">Command palette</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-num">3</span>
+                            <span class="ref-key">Ctrl + D</span>
+                            <span class="ref-desc">Multi-select</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-num">4</span>
+                            <span class="ref-key">Ctrl + /</span>
+                            <span class="ref-desc">Toggle comment</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-num">5</span>
+                            <span class="ref-key">Alt + ↑/↓</span>
+                            <span class="ref-desc">Move line</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-num">6</span>
+                            <span class="ref-key">Ctrl + Space</span>
+                            <span class="ref-desc">IntelliSense</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-num">7</span>
+                            <span class="ref-key">Ctrl + Click</span>
+                            <span class="ref-desc">Go to definition</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-num">8</span>
+                            <span class="ref-key">Win + D</span>
+                            <span class="ref-desc">Show desktop</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-num">9</span>
+                            <span class="ref-key">Alt + Tab</span>
+                            <span class="ref-desc">Switch windows</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-num">10</span>
+                            <span class="ref-key">git status</span>
+                            <span class="ref-desc">Check repo state</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ref-column">
+                    <h3 class="ref-title">The Power 10</h3>
+                    <div class="ref-list">
+                        <div class="ref-item">
+                            <span class="ref-num">1</span>
+                            <span class="ref-key">Ctrl + Shift + L</span>
+                            <span class="ref-desc">Select all occurrences</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-num">2</span>
+                            <span class="ref-key">Ctrl + Shift + O</span>
+                            <span class="ref-desc">Go to symbol</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-num">3</span>
+                            <span class="ref-key">Ctrl + \</span>
+                            <span class="ref-desc">Split editor</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-num">4</span>
+                            <span class="ref-key">Ctrl + Shift + F</span>
+                            <span class="ref-desc">Global search</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-num">5</span>
+                            <span class="ref-key">F2</span>
+                            <span class="ref-desc">Rename symbol</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-num">6</span>
+                            <span class="ref-key">Ctrl + .</span>
+                            <span class="ref-desc">Quick fix</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-num">7</span>
+                            <span class="ref-key">git checkout -b</span>
+                            <span class="ref-desc">New branch</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-num">8</span>
+                            <span class="ref-key">git stash</span>
+                            <span class="ref-desc">Stash changes</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-num">9</span>
+                            <span class="ref-key">Win + ← / →</span>
+                            <span class="ref-desc">Snap windows</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-num">10</span>
+                            <span class="ref-key">Ctrl + Shift + K</span>
+                            <span class="ref-desc">Delete line</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="keyboard-shortcuts-linux.pdf" download class="btn-primary"
+                        style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <span style="font-size: 1.2rem;">📥</span>
+                        Download Official Linux Guide (PDF)
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p class="footer-quote">"Defy gravity. Master your shortcuts."</p>
+                <p class="footer-text">Powered by Antigravity Platform - Where productivity knows no bounds. 🚀</p>
+                <p class="footer-date">Created by Shameem Ansari (<a href="mailto:shameemansari112@gmail.com"
+                        style="color: inherit; text-decoration: none;">shameemansari112@gmail.com</a>)</p>
+                <p class="footer-date">Last Updated: December 2025</p>
+            </div>
+        </footer>
+    </main>
+
+    <script src="hero-account.js"></script>
+    <script src="walkthrough.js"></script>
+    <script src="shortcuts-script.js"></script>
+</body>
+
+</html>

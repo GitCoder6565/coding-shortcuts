@@ -1,0 +1,150 @@
+/* ===================================
+   WALKTHROUGH / TOUR STYLES
+   =================================== */
+
+/* Overlay */
+.driver-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 9998;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    /* Let clicks pass through to highlighted element */
+}
+
+.driver-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Highlighted Element */
+.driver-highlighted-element {
+    position: relative;
+    z-index: 9999 !important;
+    box-shadow: 0 0 0 4px var(--accent-primary), 0 0 0 5000px rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    background: var(--bg-secondary);
+    /* Ensure readability */
+}
+
+/* Popover / Tooltip */
+.driver-popover {
+    position: absolute;
+    background: var(--bg-card);
+    border: 1px solid var(--accent-primary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 350px;
+    max-width: 90vw;
+    z-index: 10000;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.driver-popover.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.driver-popover-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.driver-popover-description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.driver-popover-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.driver-steps-count {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+}
+
+.driver-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.driver-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.driver-btn-skip {
+    background: transparent;
+    color: var(--text-tertiary);
+}
+
+.driver-btn-skip:hover {
+    color: var(--text-primary);
+}
+
+.driver-btn-next {
+    background: var(--gradient-1);
+    color: white;
+}
+
+.driver-btn-next:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-glow);
+}
+
+.driver-btn-prev {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.driver-btn-prev:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Arrow indicator */
+.driver-popover::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: var(--bg-card);
+    border-top: 1px solid var(--accent-primary);
+    border-left: 1px solid var(--accent-primary);
+    transform: rotate(45deg);
+}
+
+.driver-popover.top::after {
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%) rotate(225deg);
+}
+
+.driver-popover.bottom::after {
+    top: -7px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+}

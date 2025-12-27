@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Antigravity Shortcut Mastery</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="shortcuts-styles.css">
+    <link rel="stylesheet" href="dashboard-styles.css">
+</head>
+
+<body>
+    <!-- Top Navigation -->
+    <nav class="dashboard-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-icon">🚀</span>
+                <span class="nav-title">Antigravity</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#overview" class="nav-link active">Overview</a>
+                <a href="#favorites" class="nav-link">Favorites</a>
+                <a href="shortcuts-guide.html" class="nav-link">All Shortcuts</a>
+            </div>
+            <div class="nav-user">
+                <button class="btn-account" id="account-btn" onclick="toggleAccountMenu()">
+                    <div class="account-avatar">
+                        <span id="user-initials">U</span>
+                    </div>
+                    <span class="account-name" id="nav-user-name">User</span>
+                    <svg class="account-arrow" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M4 6l4 4 4-4" />
+                    </svg>
+                </button>
+
+                <!-- Account Dropdown Menu -->
+                <div class="account-dropdown" id="account-dropdown">
+                    <div class="dropdown-header">
+                        <div class="dropdown-avatar">
+                            <span id="dropdown-initials">U</span>
+                        </div>
+                        <div class="dropdown-user-info">
+                            <div class="dropdown-name" id="dropdown-name">User Name</div>
+                            <div class="dropdown-email" id="dropdown-email">user@email.com</div>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <div class="dropdown-stats">
+                        <div class="dropdown-stat">
+                            <span class="stat-icon">🔥</span>
+                            <span class="stat-text"><span id="dropdown-streak">0</span> day streak</span>
+                        </div>
+                        <div class="dropdown-stat">
+                            <span class="stat-icon">📚</span>
+                            <span class="stat-text"><span id="dropdown-learned">0</span> learned</span>
+                        </div>
+                        <div class="dropdown-stat">
+                            <span class="stat-icon">⭐</span>
+                            <span class="stat-text"><span id="dropdown-favorites">0</span> favorites</span>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <a href="#overview" class="dropdown-item" onclick="closeAccountMenu()">
+                        <span class="item-icon">📊</span>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#favorites" class="dropdown-item" onclick="closeAccountMenu()">
+                        <span class="item-icon">⭐</span>
+                        <span>My Favorites</span>
+                    </a>
+                    <a href="shortcuts-guide.html" class="dropdown-item" onclick="closeAccountMenu()">
+                        <span class="item-icon">📖</span>
+                        <span>All Shortcuts</span>
+                    </a>
+
+                    <div class="dropdown-divider"></div>
+
+                    <button class="dropdown-item" onclick="openSettings()">
+                        <span class="item-icon">⚙️</span>
+                        <span>Settings</span>
+                    </button>
+                    <button class="dropdown-item" onclick="openHelp()">
+                        <span class="item-icon">❓</span>
+                        <span>Help & Support</span>
+                    </button>
+
+                    <div class="dropdown-divider"></div>
+
+                    <button class="dropdown-item logout-item" onclick="handleLogout()">
+                        <span class="item-icon">🚪</span>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-main">
+        <div class="dashboard-container">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <h1 class="welcome-title">Welcome back, <span id="welcome-name">User</span>! 👋</h1>
+                <p class="welcome-subtitle">Continue your journey to zero-gravity productivity</p>
+            </section>
+
+            <!-- Stats Overview -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📚</div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="total-learned">0</div>
+                        <div class="stat-label">Shortcuts Learned</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="total-favorites">0</div>
+                        <div class="stat-label">Favorites</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="total-achievements">0</div>
+                        <div class="stat-label">Achievements</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="overall-progress">0%</div>
+                        <div class="stat-label">Overall Progress</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Learning Progress -->
+            <section class="progress-section">
+                <h2 class="section-title">Learning Progress</h2>
+                <div class="tier-progress-grid">
+                    <div class="tier-progress-card">
+                        <div class="tier-header">
+                            <span class="tier-name">TIER 1: Essential</span>
+                            <span class="tier-percentage" id="tier1-percent">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="tier1-progress" style="width: 0%"></div>
+                        </div>
+                        <div class="tier-stats">
+                            <span id="tier1-learned">0</span> / <span id="tier1-total">12</span> shortcuts
+                        </div>
+                        <button class="btn-continue" onclick="continueLearning('tier1')">Continue Learning</button>
+                    </div>
+
+                    <div class="tier-progress-card">
+                        <div class="tier-header">
+                            <span class="tier-name">TIER 2: High-Impact</span>
+                            <span class="tier-percentage" id="tier2-percent">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="tier2-progress" style="width: 0%"></div>
+                        </div>
+                        <div class="tier-stats">
+                            <span id="tier2-learned">0</span> / <span id="tier2-total">19</span> shortcuts
+                        </div>
+                        <button class="btn-continue" onclick="continueLearning('tier2')">Continue Learning</button>
+                    </div>
+
+                    <div class="tier-progress-card">
+                        <div class="tier-header">
+                            <span class="tier-name">TIER 3: Power User</span>
+                            <span class="tier-percentage" id="tier3-percent">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="tier3-progress" style="width: 0%"></div>
+                        </div>
+                        <div class="tier-stats">
+                            <span id="tier3-learned">0</span> / <span id="tier3-total">14</span> shortcuts
+                        </div>
+                        <button class="btn-continue" onclick="continueLearning('tier3')">Continue Learning</button>
+                    </div>
+
+                    <div class="tier-progress-card">
+                        <div class="tier-header">
+                            <span class="tier-name">TIER 4: Specialized</span>
+                            <span class="tier-percentage" id="tier4-percent">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="tier4-progress" style="width: 0%"></div>
+                        </div>
+                        <div class="tier-stats">
+                            <span id="tier4-learned">0</span> / <span id="tier4-total">11</span> shortcuts
+                        </div>
+                        <button class="btn-continue" onclick="continueLearning('tier4')">Continue Learning</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Favorites Section -->
+            <section id="favorites" class="favorites-section">
+                <div class="section-header">
+                    <h2 class="section-title">Your Favorite Shortcuts ⭐</h2>
+                    <button class="btn-manage" onclick="manageFavorites()">Manage</button>
+                </div>
+                <div id="favorites-list" class="favorites-grid">
+                    <div class="empty-state">
+                        <div class="empty-icon">⭐</div>
+                        <p class="empty-text">No favorites yet!</p>
+                        <p class="empty-hint">Click the star icon on any shortcut to add it here</p>
+                        <a href="shortcuts-guide.html" class="btn-browse">Browse Shortcuts</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Achievements -->
+            <section class="achievements-section">
+                <h2 class="section-title">Achievements 🏆</h2>
+                <div id="achievements-grid" class="achievements-grid">
+                    <!-- Achievements will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Recent Activity -->
+            <section class="activity-section">
+                <h2 class="section-title">Recent Activity</h2>
+                <div id="activity-feed" class="activity-feed">
+                    <div class="activity-item">
+                        <div class="activity-icon">🎉</div>
+                        <div class="activity-content">
+                            <div class="activity-title">Welcome to Antigravity!</div>
+                            <div class="activity-time">Just now</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" style="margin-top: 4rem;">
+        <div class="footer-content">
+            <p class="footer-quote" style="display: none;">"Defy gravity. Master your shortcuts."</p>
+            <p class="footer-text">Powered by Antigravity Platform - Where productivity knows no bounds. 🚀</p>
+            <p class="footer-date">Created by Shameem Ansari (<a href="mailto:shameemansari112@gmail.com"
+                    style="color: inherit; text-decoration: none;">shameemansari112@gmail.com</a>)</p>
+            <p class="footer-date">Last Updated: December 2025</p>
+        </div>
+    </footer>
+
+    <script src="dashboard-script.js"></script>
+</body>
+
+</html>
